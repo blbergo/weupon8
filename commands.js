@@ -1,9 +1,12 @@
 const { exec } = require("child_process");
 
+var restartCommand = "screen -S mcServer -X quit & cd ~/Desktop/Spigot"
+
 
 function mcRestart() 
 {
-    exec("ls -la", (error, stdout, stderr) => {
+
+    exec(restartCommand, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
