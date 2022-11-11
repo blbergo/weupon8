@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-var restartCommand = "screen -S mcServer -dm"
+var restartCommand = "screen -S mcServer -dm 'java -jar'"
 
 
 function mcRestart() 
