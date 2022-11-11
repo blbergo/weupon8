@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-var restartCommand = "screen -S mcServer -dm 'echo hello'"
+var restartCommand = "screen -dmS mcServer bash -c 'java -jar ~/Desktop/Spigot/spigot-1.19.2.jar ; exec sh'"
 
 
 function mcRestart() 
