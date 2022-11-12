@@ -7,22 +7,7 @@ var restartCommand = 'screen -S mcServer -X stuff "stop^M" && sleep 5; screen -S
 async function mcRestart(interaction) 
 {
 
-    exec(restartCommand, async (error, stdout, stderr) => {
-        if (error) {
-             await interaction.reply('Error: ' + error.message);
-            console.log(`error: ${error.message}`);
-           
-            return;
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            await interaction.reply('std err: ' + stderr)
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-
-        await interaction.reply('Successfully restarted minecraft server');
-    });
+    
 }
 
 module.exports = {mcRestart}
