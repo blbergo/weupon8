@@ -17,14 +17,11 @@ client.on('interactionCreate', async interaction => {
     //code for restarting minecraft server
     exec(restartCommand, async(error, stdout, stderr) => {
       if (error) {
-          await interaction.reply('Error: ' + error.message);
           console.log(`error: ${error.message}`);
-         
           return;
       }
       if (stderr) {
           console.log(`stderr: ${stderr}`);
-          await interaction.reply('std err: ' + stderr)
           return;
       }
       console.log(`stdout: ${stdout}`);
