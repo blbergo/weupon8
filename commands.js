@@ -3,22 +3,19 @@ const { InteractionCollector } = require("discord.js");
 
 var restartCommand = 'screen -S mcServer -X stuff "stop^M" && sleep 5; screen -S mcServer -X stuff "killall -9 java^M"; screen -S mcServer -X stuff "(cd ~/Desktop/Spigot && java -jar spigot-1.19.2.jar)^M"'
 
-
 function mcRestart(interaction) 
 {
-
     exec(restartCommand, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
-            return;
+            return error.message;
         }
         if (stderr) {
             console.log(`stderr: ${stderr}`);
-            return;
+            return stderr;
         }
         console.log(`stdout: ${stdout}`);
-
-        
+        return stdout;
     });
 }
 
