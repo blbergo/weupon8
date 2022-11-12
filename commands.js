@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-var restartCommand = "screen -S mcServer stop"
+var restartCommand = "screen -r mcServer & stop"
 
 
 function mcRestart() 
