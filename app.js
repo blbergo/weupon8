@@ -13,7 +13,8 @@ client.on('interactionCreate', async interaction => {
 
   if (interaction.commandName === 'mc-restart') {
     //code for restarting minecraft server
-    await interaction.reply(commands.mcRestart());
+    response = commands.mcRestart();
+    await interaction.reply(response);
   }
 });
 
