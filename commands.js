@@ -9,8 +9,9 @@ function mcRestart(interaction)
 
     exec(restartCommand, async (error, stdout, stderr) => {
         if (error) {
+             await interaction.reply('Error: ' + error.message);
             console.log(`error: ${error.message}`);
-            await interaction.reply('Error: ' + error.message);
+           
             return;
         }
         if (stderr) {
@@ -20,7 +21,7 @@ function mcRestart(interaction)
         }
         console.log(`stdout: ${stdout}`);
 
-        interaction.reply('Successfully restarted minecraft server');
+        await interaction.reply('Successfully restarted minecraft server');
     });
 }
 
