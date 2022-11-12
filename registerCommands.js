@@ -5,10 +5,6 @@ const commands = [
   {
     name: 'mc-restart',
     description: 'restarts minecraft server',
-  },
-  {
-    name: 'ngrok-web-ip',
-    description: 'gets current web address'
   }
 ];
 
