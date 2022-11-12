@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-var restartCommand = "screen -r mcServer & stop"
+var restartCommand = 'screen -S minecraft -p 0 -X stuff "stop^M"'
 
 
 function mcRestart() 
