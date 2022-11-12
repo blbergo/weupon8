@@ -15,7 +15,7 @@ function mcRestart(interaction)
             return stderr;
         }
         console.log(`stdout: ${stdout}`);
-        return stdout;
+        return 'Server restarting...'
     });
 }
 
