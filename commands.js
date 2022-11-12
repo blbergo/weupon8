@@ -7,15 +7,15 @@ var restartCommand = 'screen -S mcServer -X stuff "stop^M" && sleep 5; screen -S
 function mcRestart(interaction) 
 {
 
-    exec(restartCommand, (error, stdout, stderr) => {
+    exec(restartCommand, async (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
-            interaction.reply('Error: ' + error.message);
+            await interaction.reply('Error: ' + error.message);
             return;
         }
         if (stderr) {
             console.log(`stderr: ${stderr}`);
-            interaction.reply('std err: ' + stderr)
+            await interaction.reply('std err: ' + stderr)
             return;
         }
         console.log(`stdout: ${stdout}`);
