@@ -17,6 +17,8 @@ function mcRestart()
         console.log(`stdout: ${stdout}`);
         return 'Server restarting...'
     });
+
+    return 'Server restarting...'
 }
 
 module.exports = {mcRestart}
