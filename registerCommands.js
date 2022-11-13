@@ -5,6 +5,10 @@ const commands = [
   {
     name: 'mc-restart',
     description: 'restarts minecraft server',
+  },
+  {
+    name: 'ngrok-get-urls',
+    description: 'gets the current ngrok urls'
   }
 ];
 

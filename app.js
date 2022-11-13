@@ -10,12 +10,22 @@ client.on('ready', () => {
 
 client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
+  var response;
+    switch(interaction.commandName) 
+    {
+      case 'mc-restart':
+        //code for restarting minecraft server
+        response = commands.mcRestart();
+        await interaction.reply(response);
+        break;
+      case 'mc-get-map':
+        response = commands.getMap();
+        await interaction.reply(response);
+        break;
+    }
 
-  if (interaction.commandName === 'mc-restart') {
-    //code for restarting minecraft server
-    response = commands.mcRestart();
-    await interaction.reply(response);
-  }
+    
+  
 });
 
 client.login(secrets.TOKEN);
