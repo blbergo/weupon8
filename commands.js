@@ -1,5 +1,5 @@
-const { exec } = require("await-exec");
-const { InteractionCollector } = require("discord.js");
+const exec = require("await-exec");
+
 
 
 async function mcRestart() 
