@@ -21,13 +21,13 @@ function mcRestart()
     return 'Server restarting...'
 }
 
-function getUrls() 
+async function getUrls() 
 {
     var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url";
 
-    var response = 'Tunnel Not Found'
-    
-    response = exec(getCommand, (error, stdout, stderr) => {
+    var response = "Tunnel Not Found"
+
+    response = await exec(getCommand, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return error;
