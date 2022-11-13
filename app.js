@@ -18,10 +18,10 @@ client.on('interactionCreate', async interaction => {
         response = commands.mcRestart();
         await interaction.reply(response);
         break;
-        
+
       case 'ngrok-get-urls':
         response = commands.getUrls();
-        await interaction.reply(response);
+        //await interaction.reply(response);
         break;
     }
 
