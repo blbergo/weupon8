@@ -26,21 +26,9 @@ async function getUrls()
     var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url";
 
     
-    var response = await exec(getCommand, (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            return error;
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-  
-            return stderr;
-        }
-        console.log(`stdout: ${stdout}`);
-        return stdout;
-    });
+    var response = await exec(getCommand);
 
-    return response;
+    return response.stdout;
 }
 
 
