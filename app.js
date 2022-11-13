@@ -18,8 +18,8 @@ client.on('interactionCreate', async interaction => {
         response = commands.mcRestart();
         await interaction.reply(response);
         break;
-      case 'mc-get-map':
-        response = commands.getMap();
+      case 'ngrok-get-urls':
+        response = commands.getUrls();
         await interaction.reply(response);
         break;
     }

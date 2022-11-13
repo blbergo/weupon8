@@ -21,30 +21,34 @@ function mcRestart()
     return 'Server restarting...'
 }
 
-function getMap() 
+function getUrls() 
 {
 
     var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels[1].public_url";
 
+    var response = ''
     exec(getCommand, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
-            return error.message;
+            response = error.message
+            return response
         }
         if (stderr) {
             console.log(`stderr: ${stderr}`);
-            return stderr;
+            response = stderr;
+            return response;
         }
         console.log(`stdout: ${stdout}`);
+        response = stdout;
         return stdout;
     });
 
-    return 'Server restarting...'
+    return response;
 }
 
 
 
-module.exports = {mcRestart}
+module.exports = {mcRestart, getUrls}
 
 
 
