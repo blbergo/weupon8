@@ -1,11 +1,11 @@
-const { exec } = require("child_process");
+const { exec } = require("await-exec");
 const { InteractionCollector } = require("discord.js");
-const { stdout } = require("process");
 
-function mcRestart() 
+
+async function mcRestart() 
 {
     var restartCommand = 'screen -S mcServer -X stuff "stop^M" && sleep 5; screen -S mcServer -X stuff "killall -9 java^M"; screen -S mcServer -X stuff "(cd ~/Desktop/Spigot && java -jar spigot-1.19.2.jar)^M"'
-    exec(restartCommand, (error, stdout, stderr) => {
+    await exec(restartCommand, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return error.message;
@@ -21,13 +21,13 @@ function mcRestart()
     return 'Server restarting...'
 }
 
-function getUrls() 
+async function getUrls() 
 {
 
-    var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels[1].public_url";
+    var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url";
 
     var response = ''
-    exec(getCommand, (error, stdout, stderr) => {
+    await exec(getCommand, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             response = error.message
