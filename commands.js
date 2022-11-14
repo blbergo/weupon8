@@ -40,7 +40,9 @@ async function getUrls()
                 console.log(`stderr: ${stderr}`);
             }
             console.log(`stdout: ${stdout}`);
-            resolve(stdout? stdout[0] : stderr)
+            response = JSON.parse(stdout);
+
+            resolve(stdout? response[0].public_url : stderr)
         });
     })
 
