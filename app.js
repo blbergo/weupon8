@@ -15,12 +15,12 @@ client.on('interactionCreate', async interaction => {
     {
       case 'mc-restart':
         //code for restarting minecraft server
-        response = commands.mcRestart();
+        response = await commands.mcRestart();
         await interaction.reply(response);
         break;
 
       case 'ngrok-get-urls':
-        response = commands.getUrls();
+        response = await commands.getUrls();
         await interaction.reply(response);
         break;
     }
