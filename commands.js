@@ -3,7 +3,8 @@ const {exec} = require("child_process");
 
 async function mcRestart() 
 {
-    var restartCommand = 'screen -S mcServer -X stuff "stop^M" && sleep 5; screen -S mcServer -X stuff "killall -9 java^M"; screen -S mcServer -X stuff "(cd ~/Desktop/Spigot && java -jar spigot-1.19.2.jar)^M"'
+    //var restartCommand = 'screen -S mcServer -X stuff "stop^M" && sleep 5; screen -S mcServer -X stuff "killall -9 java^M"; screen -S mcServer -X stuff "(cd ~/Desktop/Spigot && java -jar spigot-1.19.2.jar)^M"'
+    var restartCommand = "sleep 5"
     return new Promise((resolve, reject) => 
     {
         exec(restartCommand, (error, stdout, stderr) => {

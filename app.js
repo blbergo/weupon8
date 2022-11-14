@@ -15,8 +15,9 @@ client.on('interactionCreate', async interaction => {
     {
       case 'mc-restart':
         //code for restarting minecraft server
+        await interaction.deferReply();
         response = await commands.mcRestart();
-        await interaction.reply(response);
+        interaction.editReply(response)
         break;
 
       case 'ngrok-get-urls':
