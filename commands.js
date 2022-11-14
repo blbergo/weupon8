@@ -10,12 +10,16 @@ async function mcRestart()
         exec(restartCommand, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
+                resolve(error.message);
             }
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
+                resolve(stderr);
             }
 
-            resolve(stdout? 'Server Restarting...' : stderr)
+            resolve('Server Restarting...');
+
+            
         });
     })
 
