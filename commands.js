@@ -27,9 +27,11 @@ async function mcRestart()
 async function getUrls() 
 {
    var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels";
+   var response = "No Active Tunnels"
 
     return new Promise((resolve, reject) => 
     {
+        
         exec(getCommand, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
@@ -38,7 +40,10 @@ async function getUrls()
                 console.log(`stderr: ${stderr}`);
             }
             console.log(`stdout: ${stdout}`);
-            resolve(stdout? stdout : stderr)
+
+            response = stdout;
+            
+            resolve(stdout? response : stderr)
         });
     })
 
