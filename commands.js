@@ -45,7 +45,7 @@ async function getUrls()
             response = ""
             for(i = 0; i < stdout.length; i++) 
             {
-                response += stdout[i].public_url + "\n"
+                response += std_out[i].name + ": " + stdout[i].public_url + "\n"
             }
 
             resolve(stdout? response : stderr)
