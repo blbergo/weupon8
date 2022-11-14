@@ -26,7 +26,7 @@ async function mcRestart()
 
 async function getUrls() 
 {
-   var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels[0]";
+   var getCommand = "curl -s localhost:4040/api/tunnels | jq -r .tunnels";
    var response = "No Active Tunnels"
 
     return new Promise((resolve, reject) => 
