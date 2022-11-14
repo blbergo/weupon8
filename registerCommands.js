@@ -9,6 +9,9 @@ const commands = [
   {
     name: 'ngrok-get-urls',
     description: 'gets the current ngrok urls'
+  },
+  {
+    
   }
 ];
 
