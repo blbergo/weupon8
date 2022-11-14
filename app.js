@@ -20,7 +20,7 @@ client.on('interactionCreate', async interaction => {
         break;
 
       case 'ngrok-get-urls':
-        response = await commands.getUrls()[0].public_url;
+        response = await commands.getUrls();
         await interaction.reply(response);
         break;
     }

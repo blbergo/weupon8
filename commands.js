@@ -40,7 +40,7 @@ async function getUrls()
                 console.log(`stderr: ${stderr}`);
             }
             console.log(`stdout: ${stdout}`);
-            resolve(stdout? stdout : stderr)
+            resolve(stdout? stdout[0] : stderr)
         });
     })
 
