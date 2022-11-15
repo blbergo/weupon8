@@ -10,10 +10,11 @@ const commands = [
     name: 'ngrok-get-urls',
     description: 'gets the current ngrok urls'
   },
-  {
-    
-  }
-];
+   {
+    name: 'ngrok-hard-reset',
+    description: 'hard resets ngrok'
+   }
+]
 
 const rest = new REST({ version: '10' }).setToken(secrets.TOKEN);
 

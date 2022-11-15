@@ -56,6 +56,27 @@ async function getUrls()
    
 }
 
+async function ngrokHardReset() {
+
+    var resetCommand = "killall -9 ngrok; ngrok start --all";
+    
+    return new Promise((resolve, reject) => 
+    {
+        exec(resetCommand, (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                resolve(error.message);
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                resolve(stderr);
+            }
+
+            resolve('Ngrok Restarting...');
+        });
+    });
+}
+
 
 
 module.exports = {mcRestart, getUrls}
