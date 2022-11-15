@@ -79,7 +79,7 @@ async function ngrokHardReset() {
 
 
 
-module.exports = {mcRestart, getUrls}
+module.exports = {mcRestart, getUrls, ngrokHardReset}
 
 
 
