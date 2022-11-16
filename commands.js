@@ -3,7 +3,7 @@ const {exec} = require("child_process");
 
 async function mcRestart() 
 {
-    var restartCommand = 'screen -S mcServer -X stuff "stop^M"; sleep 5; screen -S mcServer -X stuff "killall -9 java^M"; screen -S mcServer -X stuff "(cd ~/Desktop/Spigot && java -jar spigot-1.19.2.jar)^M"; ; screen -d'
+    var restartCommand = 'screen -S mcServer -X stuff "stop^M"; sleep 5; screen -S mcServer -X stuff "killall -9 java^M"; screen -S mcServer -X stuff "(cd ~/Desktop/Spigot && java -jar spigot-1.19.2.jar)^M"'
     return new Promise((resolve, reject) => 
     {
         exec(restartCommand, (error, stdout, stderr) => {
@@ -64,7 +64,7 @@ async function getUrls()
 
 async function ngrokHardReset() {
 
-    var resetCommand = "screen -S nodeServer -X stuff 'killall -9 ngrok^M'; screen -S nodeServer -X stuff 'ngrok start --all^M'; screen -d";
+    var resetCommand = "screen -S nodeServer -X stuff 'killall -9 ngrok^M'; screen -S ngrokServer -X stuff 'ngrok start --all^M'";
 
     return new Promise((resolve, reject) => 
     {
