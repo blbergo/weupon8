@@ -64,7 +64,7 @@ async function getUrls()
 
 async function ngrokHardReset() {
 
-    var resetCommand = "^C; screen -S ngrokServer -X stuff 'ngrok start --all^M'";
+    var resetCommand = "screen -S ngrokServer stuff '^C'; screen -S ngrokServer -X stuff 'ngrok start --all^M'";
 
     return new Promise((resolve, reject) => 
     {
