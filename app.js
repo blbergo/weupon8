@@ -35,6 +35,7 @@ client.on('interactionCreate', async interaction => {
         break;
 
       case 'linux-reboot':
+        interaction.reply("Linux restarting...")
         await commands.rebootLinux()
         break;
     }
