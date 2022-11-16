@@ -40,8 +40,16 @@ async function getUrls()
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
             }
+
+            try 
+            {
+                stdout = JSON.parse(stdout);
+            } catch(e) 
+            {
+                resolve(e);
+            }
     
-            stdout = JSON.parse(stdout);
+            
 
             response = ""
             for(i = 0; i < stdout.length; i++) 
