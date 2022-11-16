@@ -7,7 +7,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   const channel = client.channels.cache.find(channel => channel.name == "bot-commands");
-  var urls = "Linux sucessfully restarted \n New Urls: \n" + await commands.getUrls();
+  var urls = "Linux sucessfully restarted \n New Urls: \n" 
+  urls += await commands.getUrls();
   channel.send(urls);
 });
 
