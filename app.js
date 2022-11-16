@@ -30,9 +30,9 @@ client.on('interactionCreate', async interaction => {
         response = await commands.ngrokHardReset();
         var urls = await commands.getUrls();
 
-        response += urls;
+        response += "\n New Urls: \n" + urls;
 
-        await interaction.reply(response);
+        await interaction.editReply(response);
         break;
     }
 
