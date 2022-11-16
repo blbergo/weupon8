@@ -61,7 +61,7 @@ async function getUrls()
 
    
 }
-
+/
 async function ngrokHardReset() {
 
     var resetCommand = "screen -S ngrokServer stuff 'killall -9 ngrok^M'; screen -S ngrokServer -X stuff 'ngrok start --all^M'; sleep 5";
@@ -83,9 +83,29 @@ async function ngrokHardReset() {
     });
 }
 
+async function rebootLinux() 
+{
+    var rebootCommand = "sudo reboot ";
+    return new Promise((resolve, reject) => 
+    {
+        exec(rebootCommand, (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                resolve(error.message);
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                resolve(stderr);
+            }
+
+            resolve('Ngrok Restarting...');
+        });
+    });
+}
 
 
-module.exports = {mcRestart, getUrls, ngrokHardReset}
+
+module.exports = {mcRestart, getUrls, ngrokHardReset, rebootLinux}
 
 
 

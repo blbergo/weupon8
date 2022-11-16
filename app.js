@@ -31,8 +31,13 @@ client.on('interactionCreate', async interaction => {
         var urls = await commands.getUrls();
 
         response += "\n New Urls: \n" + urls;
-
         await interaction.editReply(response);
+        break;
+
+      case 'reboot-linux':
+        interaction.deferReply();
+        response = await commands.rebootLinux()
+        await interaction.editReply(response)
         break;
     }
 
