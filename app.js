@@ -21,11 +21,13 @@ client.on('interactionCreate', async interaction => {
         break;
 
       case 'ngrok-get-urls':
+        await interaction.deferReply();
         response = await commands.getUrls();
         await interaction.reply(response);
         break;
 
       case 'ngrok-hard-reset':
+        await interaction.deferReply();
         response = await commands.ngrokHardReset();
         await interaction.reply(response);
         break;
