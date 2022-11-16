@@ -34,7 +34,7 @@ client.on('interactionCreate', async interaction => {
         await interaction.editReply(response);
         break;
 
-      case 'reboot-linux':
+      case 'linux-reboot':
         interaction.deferReply();
         response = await commands.rebootLinux()
         await interaction.editReply(response)
