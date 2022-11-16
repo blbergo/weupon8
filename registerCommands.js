@@ -16,7 +16,7 @@ const commands = [
    },
    {
     name:'linux-reboot',
-    description: 'resets the linux server'
+    description: 'restarts the linux server'
    }
 ]
 
