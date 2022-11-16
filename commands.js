@@ -49,8 +49,6 @@ async function getUrls()
                 resolve("Ngrok currently offline");
             }
     
-            
-
             response = ""
             for(i = 0; i < stdout.length; i++) 
             {
