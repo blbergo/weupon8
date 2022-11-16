@@ -13,6 +13,10 @@ const commands = [
    {
     name: 'ngrok-hard-reset',
     description: 'hard resets ngrok'
+   },
+   {
+    name:'linux-reboot',
+    description: 'resets the linux server'
    }
 ]
 
