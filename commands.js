@@ -61,7 +61,7 @@ async function getUrls()
 
    
 }
-/
+
 async function ngrokHardReset() {
 
     var resetCommand = "screen -S ngrokServer stuff 'killall -9 ngrok^M'; screen -S ngrokServer -X stuff 'ngrok start --all^M'; sleep 5";
@@ -85,7 +85,7 @@ async function ngrokHardReset() {
 
 async function rebootLinux() 
 {
-    var rebootCommand = "sudo reboot ";
+    var rebootCommand = "sudo reboot";
     return new Promise((resolve, reject) => 
     {
         exec(rebootCommand, (error, stdout, stderr) => {
