@@ -46,7 +46,7 @@ async function getUrls()
                 stdout = JSON.parse(stdout);
             } catch(e) 
             {
-                resolve(e);
+                resolve("Ngrok currently offline");
             }
     
             
