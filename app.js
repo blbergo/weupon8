@@ -26,8 +26,9 @@ client.on('interactionCreate', async interaction => {
         break;
 
       case 'ngrok-hard-reset':
-        await interaction.deferReply();
+        await interaction.deferReply();///
         response = await commands.ngrokHardReset();
+        response += "\n New Urls: \n" + await commands.getUrls();
         await interaction.reply(response);
         break;
     }
