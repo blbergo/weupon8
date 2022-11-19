@@ -57,15 +57,13 @@ async function getUrls()
                 if(stdout[i].name == "Server_Map") 
                 {
                     embed.setURL(stdout[i].public_url);
+                    console.log()
                 } 
                 
-                {
-
-                }
                 response += stdout[i].name + ": " + stdout[i].public_url + "\n"
             }
 
-            response = [response, embed]
+            response = {res: response, embed: embed}
 
             resolve(stdout? response : stderr)
         });

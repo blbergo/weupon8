@@ -26,7 +26,7 @@ client.on('interactionCreate', async interaction => {
 
       case 'ngrok-get-urls':
         response = await commands.getUrls();
-        await interaction.reply({content: response[0], embeds: [response[1]]});
+        await interaction.reply({content: response.res, embeds: [response.embed]});
         break;
 
       case 'ngrok-hard-reset':
