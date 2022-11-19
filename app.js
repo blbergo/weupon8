@@ -8,8 +8,11 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   const channel = client.channels.cache.find(channel => channel.name == "bot-commands");
   var urls = "<@&1042159117210488892>\n";
+  
+  var embed = new EmbedBuilder().setTitle("Server Map").setURL(response[1]).setColor(0x0099FF)
   urls += await commands.getUrls();
-  channel.send(urls);
+
+  channel.send({content: urls, embeds:[embed]});
 });
 
 client.on('interactionCreate', async interaction => {
@@ -27,8 +30,7 @@ client.on('interactionCreate', async interaction => {
       case 'ngrok-get-urls':
         response = await commands.getUrls();
         var embed = new EmbedBuilder().setTitle("Server Map").setURL(response[1]).setColor(0x0099FF)
-        
-        await interaction.reply({embeds: [embed]});
+        await interaction.reply({content: response[0], embeds: [embed]});
         break;
 
       case 'ngrok-hard-reset':
