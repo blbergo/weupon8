@@ -50,21 +50,24 @@ async function getUrls()
                 resolve("Ngrok currently offline");
             }
     
-            urz = ""
-            var embed = new EmbedBuilder().setTitle("Server Map");
+            response = ""
+            var map_url = ""
+
             for(i = 0; i < stdout.length; i++) 
             {
                 if(stdout[i].name == "Server_Map") 
                 {
-                    embed.setURL(stdout[i].public_url);
-                    console.log()
-                } 
+                    map_url = stdout[i].public_url;
+                }  else 
+                {
+                    response += stdout[i].name + ": " + stdout[i].public_url + "\n"
+                }
                 
-                response += stdout[i].name + ": " + stdout[i].public_url + "\n"
+                
             }
 
 
-            var ret = [response, embed]
+            var ret = [response, url]
 
             resolve(stdout? ret : stderr)
         });

@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 var secrets = require('./secrets.js');
 var commands = require('./commands.js');
 
@@ -26,7 +26,8 @@ client.on('interactionCreate', async interaction => {
 
       case 'ngrok-get-urls':
         response = await commands.getUrls();
-        await interaction.reply({content: response[0], embeds: response[1]});
+        var embed = new EmbedBuilder().setTitle("Server Map").setURL('google.com')
+        await interaction.reply({content: response[0], embeds: [embed]});
         break;
 
       case 'ngrok-hard-reset':
