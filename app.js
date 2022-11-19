@@ -8,9 +8,10 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   const channel = client.channels.cache.find(channel => channel.name == "bot-commands");
   var urls = "<@&1042159117210488892>\n";
-  
-  var embed = new EmbedBuilder().setTitle("Server Map").setURL(response[1]).setColor(0x0099FF)
-  urls += await commands.getUrls();
+
+
+  urls += await commands.getUrls()[0];
+  var embed = new EmbedBuilder().setTitle("Server Map").setURL(urls[1]).setColor(0x0099FF)
 
   channel.send({content: urls, embeds:[embed]});
 });
