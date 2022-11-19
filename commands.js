@@ -1,3 +1,4 @@
+const { EmbedBuilder } = require("@discordjs/builders");
 const {exec} = require("child_process");
 
 
@@ -50,12 +51,21 @@ async function getUrls()
             }
     
             response = ""
+            var embed = new EmbedBuilder().setTitle("Server Map");
             for(i = 0; i < stdout.length; i++) 
             {
+                if(stdout[i].name == "Server_Map") 
+                {
+                    embed.setURL(stdout[i].public_url);
+                } 
+
+                {
+
+                }
                 response += stdout[i].name + ": " + stdout[i].public_url + "\n"
             }
 
-            resolve(stdout? response : stderr)
+            resolve([stdout? response : stderr, embed])
         });
     })
 
