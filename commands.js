@@ -58,14 +58,16 @@ async function getUrls()
                 {
                     embed.setURL(stdout[i].public_url);
                 } 
-
+                
                 {
 
                 }
                 response += stdout[i].name + ": " + stdout[i].public_url + "\n"
             }
 
-            resolve([stdout? response : stderr, embed])
+            response = [response, embed]
+
+            resolve(stdout? response : stderr)
         });
     })
 
