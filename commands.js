@@ -64,7 +64,7 @@ async function getUrls()
             }
 
 
-            var ret = {res: response, embed: embed}
+            var ret = [response, embed]
 
             resolve(stdout? ret : stderr)
         });
