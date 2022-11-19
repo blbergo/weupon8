@@ -26,7 +26,7 @@ client.on('interactionCreate', async interaction => {
 
       case 'ngrok-get-urls':
         response = await commands.getUrls();
-        var embed = new EmbedBuilder().setTitle("Server Map").setURL('google.com')
+        var embed = new EmbedBuilder().setTitle("Server Map").setURL('google.com').setDescription('Map of our MC server').setColor(0x0099FF)
         await interaction.reply({content: response[0], embeds: [embed]});
         break;
 
