@@ -69,7 +69,7 @@ async function getUrls()
 
             var ret = [response, map_url]
 
-            resolve(stdout? ret : stderr)
+            resolve(ret)
         });
     })
 
