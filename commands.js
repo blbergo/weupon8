@@ -3,7 +3,7 @@ const {exec} = require("child_process");
 
 async function mcRestart() 
 {
-    var restartCommand = 'screen -S mcServer -X stuff "stop^M"; sleep 5; killall java -9; screen -S mcServer -X stuff "cd ~/Desktop/Paper^M"; screen -S mcServer -X stuff "java -jar paper.1.19.2-71.jar^M"'
+    var restartCommand = 'screen -S mcServer -X stuff "stop^M"; sleep 5; screen -S mcServer -X stuff "cd ~/Desktop/Paper^M"; screen -S mcServer -X stuff "java -jar paper.1.19.2-71.jar^M"'
     return new Promise((resolve, reject) => 
     {
         exec(restartCommand, (error, stdout, stderr) => {
@@ -11,7 +11,7 @@ async function mcRestart()
                 console.log(`error: ${error.message}`);
                 resolve(error.message);
             }
-            if (!(stderr === "java: no process found")) {
+            if (stderr) {
                 console.log(`stderr: ${stderr}`);
                 resolve(stderr);
             }
