@@ -11,7 +11,7 @@ async function mcRestart()
                 console.log(`error: ${error.message}`);
                 resolve(error.message);
             }
-            if (stderr != "java: no process found") {
+            if (!(stderr === "java: no process found")) {
                 console.log(`stderr: ${stderr}`);
                 resolve(stderr);
             }
