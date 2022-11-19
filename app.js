@@ -11,7 +11,7 @@ client.on('ready', async () => {
 
 
   urls += await commands.getUrls()[0];
-  var embed = new EmbedBuilder().setTitle("Server Map").setURL(urls[1]).setColor(0x0099FF)
+  var embed = new EmbedBuilder().setTitle("Server Map").setURL(await commands.getUrls()[1]).setColor(0x0099FF)
 
   channel.send({content: urls, embeds:[embed]});
 });
