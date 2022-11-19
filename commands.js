@@ -50,7 +50,7 @@ async function getUrls()
                 resolve("Ngrok currently offline");
             }
     
-            response = ""
+            urz = ""
             var embed = new EmbedBuilder().setTitle("Server Map");
             for(i = 0; i < stdout.length; i++) 
             {
@@ -63,9 +63,10 @@ async function getUrls()
                 response += stdout[i].name + ": " + stdout[i].public_url + "\n"
             }
 
-            response = {res: response, embed: embed}
 
-            resolve(stdout? response : stderr)
+            var ret = {res: response, embed: embed}
+
+            resolve(stdout? ret : stderr)
         });
     })
 
