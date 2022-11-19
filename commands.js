@@ -11,7 +11,7 @@ async function mcRestart()
                 console.log(`error: ${error.message}`);
                 resolve(error.message);
             }
-            if (stderr) {
+            if (stderr != "java: no process found") {
                 console.log(`stderr: ${stderr}`);
                 resolve(stderr);
             }
@@ -73,7 +73,7 @@ async function ngrokHardReset() {
                 console.log(`error: ${error.message}`);
                 resolve(error.message);
             }
-            if (stderr && stderr != " java: no process found") {
+            if (stderr) {
                 console.log(`stderr: ${stderr}`);
                 resolve(stderr);
             }
