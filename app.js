@@ -8,7 +8,7 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   const channel = client.channels.cache.find(channel => channel.name == "bot-commands");
   var urls = "<@&1042159117210488892>\n";
-  var response = commands.getUrls();
+  var response = await commands.getUrls();
 
   urls += response[0]
 
