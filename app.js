@@ -3,6 +3,10 @@ var secrets = require('./secrets.js');
 var commands = require('./commands.js');
 var gameCommands = require('./oitc.js');
 
+const allPlayers = [];
+const alivePlayers = [];
+const numKills = [];
+
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.on('ready', async () => {
