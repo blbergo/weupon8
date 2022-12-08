@@ -1,6 +1,7 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 var secrets = require('./secrets.js');
 var commands = require('./commands.js');
+var gameCommands = require('./oitc.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
