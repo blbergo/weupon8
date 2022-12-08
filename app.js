@@ -7,6 +7,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   const channel = client.channels.cache.find(channel => channel.name == "bot-commands");
+  const channel2 = client.channels.cache.find(channel => channel.name == "game-chat");
+
   var urls = "<@&1042159117210488892>\n";
   var response = await commands.getUrls();
 
