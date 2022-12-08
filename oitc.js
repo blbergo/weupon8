@@ -3,56 +3,45 @@ const { createDM } = require('/users/@me/channels');
 const { EmbedBuilder } = require("@discordjs/builders");
 const {exec} = require("child_process");
 
+<<<<<<< HEAD
 async function startGame(){
     return new Promise((resolve, reject) => 
     {
         
         resolve('');
     })
+=======
+const allPlayers = [];
+const alivePlayers = [];
+const numKills = [];
+
+function startGame(){
+    
+>>>>>>> ecac6a546c7f942c95aa164aea29168a4ba896e9
 }
 
-async function restartGame(){
-    return new Promise((resolve, reject) => 
-    {
-        
-        resolve('');
-    })
+function restartGame(){
+    
 }
 
-async function endGame(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function endGame(){
+    
 }
 
-async function playerEnter(){
-    return new Promise((resolve, reject) => 
-    {
-        
-        resolve('');
-    })
+function playerEnter(){
+    
 }
 
-async function playerLeave(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function playerLeave(){
+    
 }
 
-async function playerElim(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function playerElim(){
+    
 }
 
-async function playerKill(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function playerKill(){
+   
 }
 
 module.exports = {startGame, restartGame, endGame, playerEnter, playerLeave, playerElim, playerKill}
