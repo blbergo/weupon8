@@ -7,56 +7,32 @@ const allPlayers = [];
 const alivePlayers = [];
 const numKills = [];
 
-async function startGame(){
-    return new Promise((resolve, reject) => 
-    {
-        
-        resolve('');
-    })
+function startGame(){
+    
 }
 
-async function restartGame(){
-    return new Promise((resolve, reject) => 
-    {
-        
-        resolve('');
-    })
+function restartGame(){
+    
 }
 
-async function endGame(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function endGame(){
+    
 }
 
-async function playerEnter(){
-    return new Promise((resolve, reject) => 
-    {
-        
-        resolve('');
-    })
+function playerEnter(){
+    
 }
 
-async function playerLeave(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function playerLeave(){
+    
 }
 
-async function playerElim(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function playerElim(){
+    
 }
 
-async function playerKill(){
-    return new Promise((resolve, reject) => 
-    {
-        
-    })
+function playerKill(){
+   
 }
 
 module.exports = {startGame, restartGame, endGame, playerEnter, playerLeave, playerElim, playerKill}
