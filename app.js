@@ -12,7 +12,7 @@ client.on('ready', async () => {
 
   urls += response[0]
 
-  var embed = new EmbedBuilder().setTitle("Server Map").setURL(response[1]).setColor(0x0099FF)
+  var embed = new EmbedBuilder().setTitle("Server Map").setURL(response[1]).setColor(0x0099FF).
 
   channel.send({content: urls, embeds:[embed]});
 });
