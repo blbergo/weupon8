@@ -7,6 +7,8 @@ const allPlayers = [];
 const alivePlayers = [];
 const numKills = [];
 
+
+
 //part of discord api
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
