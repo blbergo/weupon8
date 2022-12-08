@@ -7,8 +7,11 @@ const allPlayers = [];
 const alivePlayers = [];
 const numKills = [];
 
+//part of discord api
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+
+//on bot launch
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   const channel = client.channels.cache.find(channel => channel.name == "bot-commands");
@@ -24,7 +27,10 @@ client.on('ready', async () => {
   channel.send({content: urls, embeds:[embed]});
 });
 
+//whenever interaction is created
 client.on('interactionCreate', async interaction => {
+
+  //only interested in slash commands
   if (!interaction.isChatInputCommand()) return;
   var response = "command failed";
     switch(interaction.commandName) 
@@ -55,6 +61,8 @@ client.on('interactionCreate', async interaction => {
         interaction.reply("Linux restarting...")
         await commands.rebootLinux()
         break;
+
+      //other commands can be added here using case: 'command': code to be run
     }
 
     

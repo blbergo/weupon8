@@ -18,6 +18,9 @@ const commands = [
     name:'linux-reboot',
     description: 'restarts the linux server'
    }
+
+   //register commands before running npm app.js 
+   //use this format to add commands
 ]
 
 const rest = new REST({ version: '10' }).setToken(secrets.TOKEN);
