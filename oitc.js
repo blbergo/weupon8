@@ -20,33 +20,40 @@ each function must take the array as a parameter and return the modified array, 
 
 */
 
-function startGame(){
-    
+/*
+    All of these can use interaction within the case block to add more gameplay effects 
+    for example "Dachios was killed by Stephen!"
+
+    Another cool idea would be to add a random death effect "Dachios was gunned down by Stephen", "Stephen was silenced by Dachios," etc
+*/
+
+function startGame(playerArr){
+    //ask for players to join
 }
 
-function restartGame(){
-    
+function restartGame(playerArr){
+    //reset array, return it
 }
 
-function endGame(){
-    
+function endGame(playerArr){
+    //reset status, announce a winner using interaction
     return "Game has Ended";
 }
 
-function playerEnter(){
-    
+function playerEnter(playerArr, playerID){
+    //add player to playerArray and return it
 }
 
-function playerLeave(){
-    
+function playerLeave(playerArr, playerID){
+    //remove player from playerArray and return it
 }
 
-function playerElim(){
-    
+function playerElim(playerArr, playerID){
+    //change player status, return array
 }
 
-function playerKill(){
-   
+function playerKill(playerArr, playerID, killerID){
+   //change player status, add kill to killer, return array
 }
 
 module.exports = {startGame, restartGame, endGame, playerEnter, playerLeave, playerElim, playerKill}
