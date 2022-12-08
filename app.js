@@ -3,11 +3,7 @@ var secrets = require('./secrets.js');
 var commands = require('./commands.js');
 var gameCommands = require('./oitc.js');
 
-const allPlayers = [];
-const alivePlayers = [];
-const numKills = [];
-
-
+var playerList = []; 
 
 //part of discord api
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -65,6 +61,10 @@ client.on('interactionCreate', async interaction => {
         break;
 
       //other commands can be added here using case: 'command': code to be run
+      case 'end':
+          response = gameCommands.endGame();
+          interaction.reply(response);
+          break;
     }
 
     

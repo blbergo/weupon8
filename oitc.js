@@ -1,7 +1,4 @@
-const { user } = require('/users/@me');
-const { createDM } = require('/users/@me/channels');
-const { EmbedBuilder } = require("@discordjs/builders");
-const {exec} = require("child_process");
+
 /*
 
 Recommended Game setup
@@ -23,12 +20,8 @@ each function must take the array as a parameter and return the modified array, 
 
 */
 
-async function startGame(){
-    return new Promise((resolve, reject) => 
-    {
-        
-        resolve('');
-    })
+function startGame(){
+    
 }
 
 function restartGame(){
@@ -37,6 +30,7 @@ function restartGame(){
 
 function endGame(){
     
+    return "Game has Ended";
 }
 
 function playerEnter(){
