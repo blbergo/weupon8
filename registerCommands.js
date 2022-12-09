@@ -17,7 +17,35 @@ const commands = [
    {
     name:'linux-reboot',
     description: 'restarts the linux server'
-   }
+   },
+   {
+    name:'start',
+    description: 'starts the game'
+   },
+   {
+    name:'restart',
+    description: 'restarts the game'
+   },
+   {
+    name:'force-end',
+    description: 'ends the game'
+   },
+   {
+    name:'enter',
+    description: 'player enters game'
+   },
+   {
+    name:'leave',
+    description: 'player leaves game'
+   },
+   {
+    name:'dead',
+    description: 'player status is dead'
+   },
+   {
+    name:'kill',
+    description: 'player gets kill'
+   },
 
    //register commands before running npm app.js 
    //use this format to add commands
