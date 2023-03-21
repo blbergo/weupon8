@@ -1,3 +1,5 @@
+const { default: volume } = require("node-docker-api/lib/volume");
+
 //return them as an array of containers that can later be modified by the bot
 const Docker = require("node-docker-api").Docker;
 
@@ -14,6 +16,14 @@ let images = [
       PortBindings: {
         25565: [{ HostPort: "25565" }],
       },
+      Mounts: [
+        {
+          Target: "/data/vanilla",
+          Source: "serverVolumes",
+          Type: "volume",
+          ReadOnly: false,
+        },
+      ],
     },
   },
   {
@@ -24,6 +34,14 @@ let images = [
       PortBindings: {
         25575: [{ HostPort: "25575" }],
       },
+      Mounts: [
+        {
+          Target: "/data/skyfactory4",
+          Source: "serverVolumes",
+          Type: "volume",
+          ReadOnly: false,
+        },
+      ],
     },
   },
   {
@@ -34,6 +52,14 @@ let images = [
       PortBindings: {
         3000: [{ HostPort: "3000" }],
       },
+      Mounts: [
+        {
+          Target: "/data/web",
+          Source: "serverVolumes",
+          Type: "volume",
+          ReadOnly: false,
+        },
+      ],
     },
   },
 ];
@@ -47,7 +73,20 @@ const promisifyStream = (stream) =>
   });
 
 function startContainers() {
-  docker.container.list({ all: true }).then((containers) => {
+  //first check that volumes are up and running
+  docker.volume.list().then((volumes) => 
+  {
+    if(volumes.length == 0) 
+    {
+      //create volumes
+      docker.volume.create({"Name":"serverVolumes", "Driver":"local"});
+    }
+    }
+  )
+
+  console.log("Volumes successfully initialized")
+
+  docker.container.list({ all: true}).then((containers) => {
     //create containers if necessary
     if (containers.length == 0) {
       for (let i = 0; i < images.length; i++) {
@@ -65,7 +104,7 @@ function startContainers() {
         containers[j].restart();
       }
     }
-  });
+  })
 }
 
 function stopAllContainers() {
