@@ -1,0 +1,24 @@
+version: '1'
+services:
+  web:
+    image: blbergo/web-server
+    ports:
+      - "3000:3000"
+  discord:
+    image: blbergo/discord-bot
+  vanilla:
+    image: blbergo/vanilla-server
+    ports:
+      - "25565:25565"
+    volumes:
+      - backups:/vanilla
+  skyfactory4:
+    image: blbergo/skyfactory4
+    ports:
+      - "25575:25575"
+    volumes:
+      - backups:/skyfactory4
+
+volumes:
+  backups:
+

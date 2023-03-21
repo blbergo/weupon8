@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "await-exec": "^0.1.2",
-    "discord.js": "^14.6.0",
-    "node-async-exec": "^1.2.0"
-  }
-}
