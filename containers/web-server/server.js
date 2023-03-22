@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
+const request = require("request");
 const port = 3000;
+const domains = require("./secrets.js");
 var favicon = require("serve-favicon");
 
 app.use(favicon("./img/tyler.ico"));
@@ -15,6 +17,17 @@ app.get("/", (req, res) => {
   res.render("index.html");
 });
 
-app.listen(port, () => {
-  console.log(`Webserver listening on port ${port}`);
-});
+//setup DNS
+request.post(
+  domains.url,
+  function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      //start server if successful
+      app.listen(port, () => {
+        console.log(`Webserver listening on port ${port}`);
+      });
+    } else {
+      console.log(error);
+    }
+  }
+);

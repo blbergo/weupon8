@@ -74,19 +74,16 @@ const promisifyStream = (stream) =>
 
 function startContainers() {
   //first check that volumes are up and running
-  docker.volume.list().then((volumes) => 
-  {
-    if(volumes.length == 0) 
-    {
+  docker.volume.list().then((volumes) => {
+    if (volumes.length == 0) {
       //create volumes
-      docker.volume.create({"Name":"serverVolumes", "Driver":"local"});
+      docker.volume.create({ Name: "serverVolumes", Driver: "local" });
     }
-    }
-  )
+  });
 
-  console.log("Volumes successfully initialized")
+  console.log("Volumes successfully initialized");
 
-  docker.container.list({ all: true}).then((containers) => {
+  docker.container.list({ all: true }).then((containers) => {
     //create containers if necessary
     if (containers.length == 0) {
       for (let i = 0; i < images.length; i++) {
@@ -104,7 +101,7 @@ function startContainers() {
         containers[j].restart();
       }
     }
-  })
+  });
 }
 
 function stopAllContainers() {
@@ -132,6 +129,7 @@ async function restartAllContainers() {
 
   return state;
 }
+
 
 module.exports = {
   docker,
