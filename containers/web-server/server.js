@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const request = require("request");
-const port = 3000;
+const port = 80;
 const domains = require("./secrets.js");
 var favicon = require("serve-favicon");
 

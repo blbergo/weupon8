@@ -12,27 +12,29 @@ client.on("ready", async () => {
 
   console.log("\nStarting up containers...");
   await dockerHelpers.startContainers();
-  console.log("Containers successfully initialized")
+  console.log("Containers successfully initialized");
 });
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
   var response = "command failed";
-  switch (
-    interaction.commandName
-  ) {
+  switch (interaction.commandName) {
     case "restart-servers":
-      await interaction.reply(commands.restartServers());
-      
+      await interaction.reply(await commands.restartServers());
+      break;
+    case "get-urls":
+      await interaction.reply(await commands.getUrls());
+      break;
+    default:
+      await interaction.reply(response);    
   }
 });
 
 //program close code taken from stackoverflow
 function stopEvent(code) {
-
   console.log("\nBot shutting down...");
 
-  dockerHelpers.stopAllContainers()
+  dockerHelpers.stopAllContainers();
   client.user.setStatus("invisible");
   client.destroy();
 }
